@@ -14,7 +14,7 @@ You need to first install vscode, create a github account, and download git bash
 
 ![DEMO](public/assets/images/demo.gif)
 
-[Click here to view the site.](https://radiant-hollows-14835.herokuapp.com/)  
+[Click here to view the site.](https://glorvi23.github.io/employee_directory/)  
 ## License
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 MIT License
