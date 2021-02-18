@@ -65,6 +65,22 @@ class App extends Component {
 
     this.setState({ results: result });
   }
+  handleSortName() {
+    console.log(`Name!: `, this);
+    const result = this.state.results;
+
+    result.sort((a, b) => {
+      var numOne = a.name.last;
+      var numTwo = b.name.last;
+      if (numOne < numTwo) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
+
+    this.setState({ results: result });
+  }
  
 }
 
