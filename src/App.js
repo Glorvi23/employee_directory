@@ -115,7 +115,18 @@ class App extends Component {
     this.setState({ results: result });
   }
 
-  
+  handleSortDob() {
+    console.log(`Dob!: `, this);
+    const result = this.state.results;
+
+    result.sort((a, b) => {
+      return b.dob.age - a.dob.age;
+    });
+
+    this.setState({ results: result });
+  }
+
+ 
 }
 
 export default App;
