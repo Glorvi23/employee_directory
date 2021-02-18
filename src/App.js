@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component } from "react";
+import Employees from "./components/Employees/Employees";
+import API from "./utils/API";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      results: [],
+      tempResults: [],
+      search: "",
+    };
+    this.handleSortImage = this.handleSortImage.bind(this);
+    this.handleSortName = this.handleSortName.bind(this);
+    this.handleSortPhone = this.handleSortPhone.bind(this);
+    this.handleSortEmail = this.handleSortEmail.bind(this);
+    this.handleSortDob = this.handleSortDob.bind(this);
+    this.handleFilter = this.handleFilter.bind(this);
+  }
+
+  
 }
 
 export default App;
