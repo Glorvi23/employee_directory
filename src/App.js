@@ -146,7 +146,12 @@ class App extends Component {
     });
   };
 
- 
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+    this.handleFilter(this.state.search);
+  };
+
+  
 }
 
 export default App;
