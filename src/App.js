@@ -19,7 +19,25 @@ class App extends Component {
     this.handleFilter = this.handleFilter.bind(this);
   }
 
-  
+  componentDidMount() {
+    API.search()
+      .then((res) => {
+        console.log(this);
+        console.log("in promise: ", res.data.results);
+        this.setState({
+          results: res.data.results,
+          tempResults: res.data.results,
+        });
+        // this.handleFilter();
+      })
+      .catch((err) => console.log(err));
+    // console.log("tempResults!: ", this.state.tempResults);
+    // console.log("results!: ", this.state.tempResults);
+
+    // this.searchEmployee();
+  }
+
+ 
 }
 
 export default App;
