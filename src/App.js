@@ -37,6 +37,17 @@ class App extends Component {
     // this.searchEmployee();
   }
 
+  handleFilter(name) {
+    // console.log("tempResults!: ", this.state.tempResults);
+    // console.log("results!: ", this.state.tempResults);
+    // this.setState({ results: this.state.tempResults });
+    const result = this.state.results.filter((employee) =>
+      employee.name.first.includes(name)
+    );
+
+    this.setState({ results: result });
+  }
+
  
 }
 
