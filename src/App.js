@@ -151,7 +151,42 @@ class App extends Component {
     this.handleFilter(this.state.search);
   };
 
-  
+  render() {
+    return (
+      <div className="App">
+        <div className="row p-5 text-center bg-dark">
+          <div className="col text-white">
+            <h1>Employee Directory</h1>
+            <p className="mt-3">Click on carrots to filter by heading or use the search box to narrow your results.</p>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col p-2 text-center">
+            <input
+              onChange={this.handleInputChange}
+              name="search"
+              value={this.state.search}
+            />
+            <button
+              className="btn btn-primary"
+              onClick={this.handleFormSubmit}
+            >
+              Filter
+            </button>
+            <Employees
+              handleSortImage={this.handleSortImage}
+              handleSortName={this.handleSortName}
+              handleSortPhone={this.handleSortPhone}
+              handleSortEmail={this.handleSortEmail}
+              handleSortDob={this.handleSortDob}
+              employees={this.state.results}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
