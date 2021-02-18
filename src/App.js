@@ -126,6 +126,26 @@ class App extends Component {
     this.setState({ results: result });
   }
 
+  // searchEmployee() {
+  //   API.search()
+  //     .then((res) => {
+  //       console.log(this);
+  //       console.log("in promise: ", res.data.results);
+  //       this.setState({ results: res.data.results });
+  //       // this.handleFilter();
+  //     })
+  //     .catch((err) => console.log(err));
+  //   // console.log(this.state.results);
+  // }
+
+  handleInputChange = (event) => {
+    const value = event.target.value;
+    const name = event.target.name;
+    this.setState({
+      [name]: value,
+    });
+  };
+
  
 }
 
