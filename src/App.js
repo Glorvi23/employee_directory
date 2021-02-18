@@ -48,6 +48,23 @@ class App extends Component {
     this.setState({ results: result });
   }
 
+  handleSortImage() {
+    console.log(`Image!: `, this);
+    const result = this.state.results;
+
+    result.sort((a, b) => {
+      // return b.dob.age > a.dob.age ? 1 : -1;
+      var imgOne = a.picture.thumbnail;
+      var imgTwo = b.picture.thumbnail;
+      if (imgOne < imgTwo) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
+
+    this.setState({ results: result });
+  }
  
 }
 
