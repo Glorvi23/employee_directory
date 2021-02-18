@@ -98,6 +98,23 @@ class App extends Component {
     this.setState({ results: result });
   }
 
+  handleSortEmail() {
+    console.log(`Email!: `, this);
+    const result = this.state.results;
+
+    result.sort((a, b) => {
+      var emailOne = a.email;
+      var emailTwo = b.email;
+      if (emailOne < emailTwo) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
+
+    this.setState({ results: result });
+  }
+
   
 }
 
