@@ -12,6 +12,7 @@ class App extends Component {
       search: "",
       sortOrder: "asc",
       tempSortValue: "",
+      sortDob: true,
       // sortColumn: "",
     };
     // this.handleSortImage = this.handleSortImage.bind(this);
@@ -133,6 +134,8 @@ class App extends Component {
     const temp = this.state.tempSortValue;
     const sort = this.state.sortOrder;
 
+    this.setState({ sortDob: true });
+
     console.log(`temp`, temp);
     if (temp !== column) {
       this.setState({ sortOrder: "asc" });
@@ -196,10 +199,19 @@ class App extends Component {
   handleSortDob() {
     console.log(`Dob!: `, this);
     const result = this.state.results;
-
-    result.sort((a, b) => {
-      return b.dob.age - a.dob.age;
-    });
+    const sort = this.state.sortOrder;
+    if (sort === "asc" || this.state.sortDob) {
+      this.setState({ sortOrder: "desc" });
+      this.setState({ sortDob: false });
+      result.sort((a, b) => {
+        return b.dob.age - a.dob.age;
+      });
+    } else {
+      this.setState({ sortOrder: "asc" });
+      result.sort((a, b) => {
+        return a.dob.age - b.dob.age;
+      });
+    }
 
     this.setState({ results: result });
   }
