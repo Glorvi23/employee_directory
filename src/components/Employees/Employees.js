@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import EmployeeRow from "../EmployeeRow/EmployeeRow";
-import API from "../../utils/API";
+// import API from "../../utils/API";
 
 const Employees = (props) => {
   // state = {
@@ -62,16 +62,45 @@ const Employees = (props) => {
           <table className="table">
             <thead>
               <tr>
-                <th name="image" onClick={props.handleSortImage} scope="col">
+                {/* <th name="image" onClick={props.handleSortImage} scope="col">
+                  Image
+                </th> */}
+                <th
+                  // value="picture.thumbnail"
+                  // onClick={(value) => {
+                  //   props.handleSortImage({ value });
+                  //   console.log(`imagevalue: `, value);
+                  // }}
+                  scope="col"
+                >
                   Image
                 </th>
-                <th onClick={props.handleSortName} scope="col">
+                <th
+                  onClick={(e) => {
+                    props.handleSort(e.target.textContent);
+                    console.log(`sort`, e.target.textContent);
+                  }}
+                  scope="col"
+                  // name="Name"
+                >
                   Name
                 </th>
-                <th onClick={props.handleSortPhone} scope="col">
+                <th
+                  onClick={(e) => {
+                    props.handleSort(e.target.textContent);
+                    console.log(`sort`, e.target.textContent);
+                  }}
+                  scope="col"
+                >
                   Phone
                 </th>
-                <th onClick={props.handleSortEmail} scope="col">
+                <th
+                  onClick={(e) => {
+                    props.handleSort(e.target.textContent);
+                    console.log(`sort`, e.target.textContent);
+                  }}
+                  scope="col"
+                >
                   Email
                 </th>
                 <th onClick={props.handleSortDob} scope="col">
