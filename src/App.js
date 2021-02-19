@@ -80,22 +80,35 @@ class App extends Component {
 
   //   this.setState({ results: result });
   // }
-  // handleSortName() {
-  //   console.log(`Name!: `, this);
-  //   const result = this.state.results;
+  handleSortNameAsc() {
+    console.log(`Name!: `, this);
+    const result = this.state.results;
 
-  //   result.sort((a, b) => {
-  //     var numOne = a.name.last;
-  //     var numTwo = b.name.last;
-  //     if (numOne < numTwo) {
-  //       return 1;
-  //     } else {
-  //       return -1;
-  //     }
-  //   });
+    result.sort((a, b) => {
+      if (a.name.first < b.name.first) {
+        return -1;
+      } else {
+        return 1;
+      }
+    });
 
-  //   this.setState({ results: result });
-  // }
+    this.setState({ results: result });
+  }
+
+  handleSortNameDesc() {
+    console.log(`Name!: `, this);
+    const result = this.state.results;
+
+    result.sort((a, b) => {
+      if (a.name.first < b.name.first) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
+
+    this.setState({ results: result });
+  }
   // handleSortPhone() {
   //   console.log(`Phone!: `, this);
   //   const result = this.state.results;
@@ -134,11 +147,14 @@ class App extends Component {
     const temp = this.state.tempSortValue;
     const sort = this.state.sortOrder;
 
-    this.setState({ sortDob: true });
-
     console.log(`temp`, temp);
+    if (!this.state.sortDob) {
+      this.setState({ sortDob: true });
+    }
+
     if (temp !== column) {
       this.setState({ sortOrder: "asc" });
+
       // this.handleSort(column);
       this.setState({ tempSortValue: column });
       console.log(`InnertempsortValue`, this.state.tempSortValue);
@@ -151,6 +167,9 @@ class App extends Component {
   handleSort(column) {
     column = column.toLowerCase();
     const result = this.state.tempResults;
+
+    // this.setState({ sortDob: true });
+
     // const sort = this.state.sortOrder;
     // const temp = this.state.tempSortValue;
     // console.log(`temp`, temp);
@@ -177,6 +196,8 @@ class App extends Component {
             return 1;
           }
         });
+      } else if (column === "name") {
+        this.handleSortNameAsc();
       }
     } else {
       this.setState({ sortOrder: "asc" });
@@ -189,6 +210,8 @@ class App extends Component {
             return -1;
           }
         });
+      } else if (column === "name") {
+        this.handleSortNameDesc();
       }
     }
     console.log(`FinishedSortOrder`, this.state.sortOrder);
@@ -196,10 +219,13 @@ class App extends Component {
     this.setState({ tempResults: result });
   }
 
+  // *************************************************************************************
   handleSortDob() {
     console.log(`Dob!: `, this);
     const result = this.state.results;
     const sort = this.state.sortOrder;
+    this.setState({ tempSortValue: "" });
+
     if (sort === "asc" || this.state.sortDob) {
       this.setState({ sortOrder: "desc" });
       this.setState({ sortDob: false });
